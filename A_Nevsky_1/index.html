@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конспект: Александр Невский</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'EB Garamond', serif;
+            margin: 0;
+            padding: 20px 0;
+            background-color: #cbbfa6;
+            background-image: url('https://www.transparenttextures.com/patterns/old-wall.png');
+            color: #3a2e24;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #f4f0e8;
+            padding: 30px 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(50, 40, 30, 0.2);
+            border-radius: 5px;
+            border: 1px solid #d3c5b4;
+        }
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            color: #5a3d2b;
+            text-align: center;
+            border-bottom: 2px solid #8a6d4c;
+            padding-bottom: 10px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        h1 { font-size: 3em; margin-bottom: 20px; }
+        h2 { font-size: 2.2em; text-align: left; margin-top: 50px; margin-bottom: 20px; border-bottom-style: double; border-bottom-width: 3px; }
+        .timeline-date {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6em;
+            color: #5a3d2b;
+            text-align: center;
+            margin: 30px auto 15px auto;
+            padding: 5px 25px;
+            border-top: 1px solid #a98e6f;
+            border-bottom: 2px double #a98e6f;
+            letter-spacing: 1px;
+        }
+        p { text-align: justify; margin-bottom: 15px; }
+        .epigraph {
+            font-style: italic;
+            font-size: 1.2em;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(138, 109, 76, 0.05);
+            border: 1px dashed #a98e6f;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .timeline-image {
+            max-width: 300px;
+            height: auto;
+            border-radius: 3px;
+            border: 7px solid #d3c5b4;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+            padding: 5px;
+            margin-bottom: 15px;
+            filter: sepia(30%);
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .image-right { float: right; margin-left: 25px; transform: translateX(50px); }
+        .image-left { float: left; margin-right: 25px; transform: translateX(-50px); }
+        .timeline-image.visible { opacity: 1; transform: translateX(0); }
+        .section { overflow: auto; margin-bottom: 40px; padding-bottom: 20px; }
+        .highlight { font-weight: bold; color: #8b0000; }
+
+        /* --- Infographics Styles --- */
+        .infographic-container {
+            background-color: #f9f6f0;
+            border: 2px double #a98e6f;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            clear: both;
+        }
+        .infographic-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4em;
+            text-align: center;
+            color: #5a3d2b;
+            margin: -5px 0 20px 0;
+            border-bottom: 1px solid #a98e6f;
+            padding-bottom: 10px;
+        }
+        .infographic-columns { display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap; }
+        .infographic-column { flex: 1; min-width: 250px; text-align: center; }
+        .infographic-column h4 { font-family: 'Cinzel', serif; font-size: 1.2em; margin-top: 0; color: #3a2e24; }
+        .infographic-column ul { list-style-type: none; padding: 0; text-align: left; font-size: 0.95em; }
+        .infographic-column li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .infographic-column li::before { content: '»'; position: absolute; left: 0; color: #8b0000; font-weight: bold; }
+        .solution { border-top: 1px dashed #a98e6f; padding-top: 10px; margin-top: 10px; font-weight: bold; color: #006400; }
+
+        /* Battle Diagram Styles */
+        .battle-diagram { text-align: center; }
+        .battle-row { display: flex; justify-content: center; align-items: center; margin: 10px 0; flex-wrap: wrap; }
+        .troop-block { border: 1px solid #3a2e24; padding: 8px 10px; background-color: #eaddc7; font-size: 0.85em; margin: 2px; text-align: center; }
+        .rus-cavalry { background-color: #d1e7dd; }
+        .knights-wedge { background-color: #f5c7c7; font-weight: bold; }
+        .arrow { font-size: 1.8em; color: #8b0000; font-weight: bold; margin: 0 10px; }
+
+        @media (max-width: 768px) {
+            .timeline-image { float: none; display: block; margin: 20px auto; max-width: 90%; }
+            .image-right, .image-left { transform: translateY(30px); }
+            .timeline-image.visible { transform: translateY(0); }
+            .container { padding: 15px 20px; width: 90%; }
+            h1 { font-size: 2.2em; } h2 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Александр Невский: Ключевые события</h1>
+
+        <div class="epigraph">
+            "Идите и скажите всем в чужих краях, что Русь жива... Но если кто с мечом к нам войдёт, тот от меча и погибнет. На том стоит и стоять будет русская земля."<br><small>(Цитата из к/ф "Александр Невский")</small>
+        </div>
+
+        <div class="section">
+            <h2>Исторический контекст: Русь XIII века</h2>
+            <img src="slide1_map_13century_rus.jpeg" alt="Карта Руси XIII века" class="timeline-image image-right">
+            <p>XIII век был для Руси временем тяжелых испытаний. <span class="highlight">Княжеские междоусобицы</span> ослабили государство, сделав его уязвимым для внешних врагов. В этот период Русь столкнулась с двумя основными угрозами: нашествием монголов с Востока и агрессией со стороны шведских и немецких рыцарских орденов с Запада.</p>
+
+            <div class="infographic-container">
+                <div class="infographic-title">Угроза с двух сторон</div>
+                <div class="infographic-columns">
+                    <div class="infographic-column">
+                        <h4>ЗАПАД (Шведы, Ливонский орден)</h4>
+                        <ul>
+                            <li>Цель: Захват земель, насаждение католичества.</li>
+                            <li>Метод: Военная агрессия.</li>
+                            <li>Сила: Тяжеловооруженные рыцари, хорошая организация.</li>
+                        </ul>
+                        <div class="solution">Решение Александра: Военный отпор</div>
+                    </div>
+                    <div class="infographic-column">
+                        <h4>ВОСТОК (Золотая Орда)</h4>
+                        <ul>
+                            <li>Цель: Сбор дани, контроль над князьями.</li>
+                            <li>Метод: Разорительные набеги, террор.</li>
+                            <li>Сила: Огромная армия, мобильность.</li>
+                        </ul>
+                        <div class="solution">Решение Александра: Дипломатия</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ранние годы и начало княжения</h2>
+            <div class="timeline-date">Около 1221 года</div>
+            <img src="slide3_young_alexander.jpeg" alt="Молодой Александр Ярославич" class="timeline-image image-left">
+            <p>Александр, сын князя Ярослава Всеволодовича, родился в Переяславле-Залесском. С ранних лет он был вовлечен в государственные дела. Еще будучи ребенком, он был оставлен отцом в качестве наместника в Новгороде, где получил первый опыт управления в сложных условиях.</p>
+
+            <div class="infographic-container">
+                <div class="infographic-title">Ключевые факты</div>
+                 <div class="infographic-columns">
+                    <div class="infographic-column">
+                       <ul>
+                           <li><b>Рождение:</b> ~1221 г., Переяславль-Залесский.</li>
+                           <li><b>Отец:</b> Ярослав Всеволодович, князь Переяславский и Киевский, Великий князь Владимирский.</li>
+                           <li><b>Имя "Александр":</b> В переводе с греческого — "защитник людей".</li>
+                       </ul>
+                    </div>
+                     <div class="infographic-column">
+                       <ul>
+                           <li><b>Княжеский постриг:</b> Обряд посвящения в воины, прошел в раннем детстве.</li>
+                           <li><b>Первый опыт:</b> В 1228 г. (в 7 лет) оставлен наместником в Новгороде.</li>
+                       </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-date">1236 год</div>
+             <img src="slide4_novgorod_kremlin.jpeg" alt="Новгородский Кремль" class="timeline-image image-right">
+            <p>В возрасте 15 лет Александр был избран на самостоятельное княжение в Новгороде. Это был крупный торговый город с республиканской формой правления (вече). Князь в Новгороде выполнял в первую очередь функции военачальника. Александр сразу занялся укреплением западных границ новгородских земель.</p>
+        </div>
+
+        <div class="section">
+            <h2>Невская битва</h2>
+            <div class="timeline-date">15 июля 1240 года</div>
+            <img src="slide6_nevsky_battle.jpeg" alt="Александр Невский в Невской битве" class="timeline-image image-left">
+            <p>Воспользовавшись ослаблением Руси после монгольского нашествия, шведский отряд высадился в устье реки Невы. Александр с небольшой дружиной, не дожидаясь сбора основного войска, совершил быстрый переход и <span class="highlight">внезапно атаковал шведский лагерь</span>. Шведы были разбиты. За эту победу князь Александр получил почетное прозвище "Невский".</p>
+        </div>
+
+        <div class="section">
+            <h2>Конфликт с Новгородом и немецкое вторжение</h2>
+            <div class="timeline-date">Зима 1240-1241 годов</div>
+            <img src="slide7_conflict_exile.jpeg" alt="Александр Невский покидает Новгород" class="timeline-image image-right">
+            <p>После Невской битвы у Александра произошел конфликт с новгородскими боярами, и он был вынужден покинуть город. Этим воспользовался Ливонский орден: рыцари захватили крепость Изборск, а затем и Псков. Создалась прямая угроза Новгороду. Новгородцы были вынуждены вновь просить Александра вернуться и возглавить войско.</p>
+        </div>
+
+        <div class="section">
+            <h2>Ледовое побоище</h2>
+            <div class="timeline-date">5 апреля 1242 года</div>
+            <p>Александр вернулся, освободил Псков и вывел войско на лёд Чудского озера для решающего сражения. Его тактический план заключался в том, чтобы заманить главный удар рыцарей в центр и затем разгромить их ударами с флангов.</p>
+
+            <div class="infographic-container">
+                <div class="infographic-title">Тактика Ледового побоища</div>
+                <div class="battle-diagram">
+                    <div class="battle-row">
+                        <div class="troop-block rus-cavalry">Конница (засада)</div>
+                        <div class="troop-block">Русская пехота (фланг)</div>
+                        <div class="troop-block">Русская пехота (фланг)</div>
+                        <div class="troop-block rus-cavalry">Конница (засада)</div>
+                    </div>
+                    <div class="battle-row">
+                        <span class="arrow">↳</span>
+                        <div class="troop-block">Передовой полк (отступает)</div>
+                        <span class="arrow">↲</span>
+                    </div>
+                    <div class="battle-row" style="font-size: 1.5em;">↓</div>
+                    <div class="battle-row">
+                        <div class="troop-block knights-wedge">Рыцарский клин ("свинья")</div>
+                    </div>
+                </div>
+            </div>
+
+            <p>План сработал идеально. Тяжеловооруженные рыцари увязли в бою с пехотой, после чего <span class="highlight">русская конница ударила с флангов и окружила противника</span>. Враг был полностью разгромлен, что надолго остановило продвижение Ордена на восток.</p>
+        </div>
+
+        <div class="section">
+            <h2>Отношения с Ордой и конец жизни</h2>
+            <div class="timeline-date">1247-1262 годы</div>
+            <img src="slide5_batu_invasion.jpeg" alt="Монгольское нашествие" class="timeline-image image-right">
+            <p>После побед на Западе основной задачей Александра стало выстраивание отношений с Золотой Ордой, так как открытое военное сопротивление было невозможно. Он выбрал <span class="highlight">путь дипломатии</span>. Несколько раз он ездил в столицу Орды, где добивался ярлыков на княжение, предотвращал карательные походы и выкупал пленных. Его политика позволила сохранить Русь от полного разорения.</p>
+            <div class="timeline-date">14 ноября 1263 года</div>
+            <p>Возвращаясь из своей последней поездки в Орду, где он отвёл угрозу нового нашествия, Александр Невский заболел и скончался в Городце на Волге. Он умер в возрасте 42 лет.</p>
+
+            <div class="infographic-container">
+                <div class="infographic-title">Наследие Александра Невского</div>
+                <div class="infographic-columns">
+                    <div class="infographic-column">
+                        <h4>Духовное наследие</h4>
+                        <ul>
+                            <li>Канонизирован как святой благоверный князь.</li>
+                            <li>Считается небесным покровителем Санкт-Петербурга и воинов.</li>
+                            <li>Символ защиты православной веры.</li>
+                        </ul>
+                    </div>
+                    <div class="infographic-column">
+                        <h4>Государственное наследие</h4>
+                        <ul>
+                            <li>Учрежден орден Александра Невского (1725 г.) — одна из высших наград.</li>
+                            <li>Национальный герой, символ воинской доблести.</li>
+                            <li>Пример мудрого правителя, сочетавшего силу и дипломатию.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const images = document.querySelectorAll('.timeline-image');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            images.forEach(image => observer.observe(image));
+        });
+    </script>
+</body>
+</html>
