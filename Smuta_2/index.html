@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инфографика: Исторические личности Смутного времени</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'EB Garamond', serif;
+            margin: 0;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #e8ddc6 0%, #cbbfa6 100%);
+            color: #3a2e24;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #f9f6f0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid #d3c5b4;
+        }
+
+        .main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3em;
+            text-align: center;
+            color: #5a3d2b;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .period-subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #8b0000;
+            font-weight: bold;
+            margin-bottom: 40px;
+            padding: 10px 20px;
+            background: rgba(139, 0, 0, 0.1);
+            border-radius: 25px;
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Timeline Visual */
+        .timeline-visual {
+            background: #fff;
+            border: 3px double #8a6d4c;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .timeline-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em;
+            text-align: center;
+            color: #5a3d2b;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #a98e6f;
+            padding-bottom: 10px;
+        }
+
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #8a6d4c, #d3c5b4, #8a6d4c);
+            z-index: 1;
+        }
+
+        .timeline-ruler {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ruler-item {
+            background: #f9f6f0;
+            border: 2px solid #8a6d4c;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .ruler-item:hover {
+            transform: scale(1.1);
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .ruler-label {
+            position: absolute;
+            top: -35px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.4em;
+            font-weight: bold;
+            white-space: nowrap;
+            color: #5a3d2b;
+            text-align: center;
+        }
+
+        .ruler-year {
+            position: absolute;
+            bottom: -25px;
+            font-size: 0.35em;
+            color: #8b0000;
+            font-weight: bold;
+        }
+
+        /* Character Cards Grid */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .character-card {
+            background: linear-gradient(145deg, #fff 0%, #f5f1eb 100%);
+            border: 2px solid #d3c5b4;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .character-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, #8a6d4c, #d3c5b4);
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+        }
+
+        .character-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .character-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8a6d4c, #a98e6f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            margin-right: 15px;
+            border: 3px solid #d3c5b4;
+        }
+
+        .character-info h3 {
+            font-family: 'Cinzel', serif;
+            color: #5a3d2b;
+            margin: 0 0 5px 0;
+            font-size: 1.4em;
+        }
+
+        .character-period {
+            color: #8b0000;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .character-role {
+            background: rgba(138, 109, 76, 0.1);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            color: #5a3d2b;
+            font-weight: bold;
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+        .character-description {
+            font-size: 1em;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .character-impact {
+            margin-top: 15px;
+            padding: 12px;
+            background: rgba(139, 0, 0, 0.05);
+            border-left: 4px solid #8b0000;
+            border-radius: 5px;
+        }
+
+        .impact-label {
+            font-weight: bold;
+            color: #8b0000;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .main-title { font-size: 2.2em; }
+            .characters-grid { grid-template-columns: 1fr; }
+            .timeline-container { flex-direction: column; gap: 10px; }
+            .timeline-container::before { display: none; }
+            .ruler-item { width: 60px; height: 60px; font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">Исторические Личности Смутного Времени</h1>
+        <div class="period-subtitle">1598-1613</div>
+
+        <div class="timeline-visual">
+            <div class="timeline-title">Хронология</div>
+            <div class="timeline-container">
+                <div class="timeline-ruler">
+                    <div class="ruler-item">
+                        <div class="ruler-label">Годунов</div>
+                        <div>👑</div>
+                        <div class="ruler-year">1598-1605</div>
+                    </div>
+                    <div class="ruler-item">
+                        <div class="ruler-label">Лжедмитрий I</div>
+                        <div>🎭</div>
+                        <div class="ruler-year">1605-1606</div>
+                    </div>
+                    <div class="ruler-item">
+                        <div class="ruler-label">Шуйский</div>
+                        <div>⚔️</div>
+                        <div class="ruler-year">1606-1610</div>
+                    </div>
+                    <div class="ruler-item">
+                        <div class="ruler-label">Семибоярщина</div>
+                        <div>🇵🇱</div>
+                        <div class="ruler-year">1610-1612</div>
+                    </div>
+                    <div class="ruler-item">
+                        <div class="ruler-label">Романов</div>
+                        <div>🕊️</div>
+                        <div class="ruler-year">1613</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="characters-grid">
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-avatar">👑</div>
+                    <div class="character-info">
+                        <h3>Борис Годунов</h3>
+                        <div class="character-period">1598-1605</div>
+                    </div>
+                </div>
+                <div class="character-description">
+                    Был близок к Федору Ивановичу. Стал вторым человеком в государстве. Венчан на царство 1 сентября 1598 года. Произнес фразу: "никто не будет в моем царстве нищ и беден".
+                </div>
+                <div class="character-impact">
+                    <div class="impact-label">При правлении:</div>
+                    Раздача жалования дворянам, отмена недоимок, поощрение торговли, открыл царские закрома. Великий голод 1601-1603 годов.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-avatar">🎭</div>
+                    <div class="character-info">
+                        <h3>Лжедмитрий I</h3>
+                        <div class="character-period">1605-1606</div>
+                    </div>
+                </div>
+                <div class="character-description">
+                    Наиболее правдоподобная версия связывает его с Григорием Отрепьевым. Бежал в Речь Посполитую, получил поддержку магнатов и короля Сигизмунда.
+                </div>
+                <div class="character-impact">
+                    <div class="impact-label">Конец:</div>
+                    Свадьба на Марине Мнишек и поведение поляков в Москве вызвали недовольство. Василий Шуйский организовал восстание и убийство.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-avatar">⚔️</div>
+                    <div class="character-info">
+                        <h3>Василий Шуйский</h3>
+                        <div class="character-period">1606-1610</div>
+                    </div>
+                </div>
+                <div class="character-description">
+                    Представитель древнего боярского рода. "Выкрикнут" на царство на Красной площади после убийства Лжедмитрия I.
+                </div>
+                <div class="character-impact">
+                    <div class="impact-label">Правление:</div>
+                    Увеличил срок сыска беглых крестьян до 15 лет. В феврале 1609 года заключил договор с Карлом, отдав Корелу с уездом за войско наемников.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-avatar">🔥</div>
+                    <div class="character-info">
+                        <h3>Иван Болотников</h3>
+                        <div class="character-period">1606-1607</div>
+                    </div>
+                </div>
+                <div class="character-description">
+                    Бывший военный холоп. В воззваниях призывал "истреблять знатных и богатых людей и забирать их имущество". Поддержали холопы, крестьяне, казаки, служилые люди.
+                </div>
+                <div class="character-impact">
+                    <div class="impact-label">Итог:</div>
+                    Подошел к Москве. Дворяне покинули его, напуганные радикализмом. Был разбит, ослеплен и утоплен.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-avatar">👤</div>
+                    <div class="character-info">
+                        <h3>Лжедмитрий II</h3>
+                        <div class="character-period">1607-1610</div>
+                    </div>
+                </div>
+                <div class="character-role">"Тушинский вор"</div>
+                <div class="character-description">
+                    Появился в Польше. Расположился в селе Тушино. Страна оказалась в ситуации двоевластия - два царя, две боярские думы, множество приказов.
+                </div>
+                <div class="character-impact">
+                    <div class="impact-label">Конец:</div>
+                    Разгромлен шведскими войсками под руководством Скопина-Шуйского. Бежал в Калугу.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-avatar">⛪</div>
+                    <div class="character-info">
+                        <h3>Патриарх Гермоген</h3>
+                        <div class="character-period">1610-1612</div>
+                    </div>
+                </div>
+                <div class="character-description">
+                    Активно призывал людей к объединению и сопротивлению врагам. Отказался уговаривать восставших разойтись по домам.
+                </div>
+                <div class="character-impact">
+                    <div class="impact-label">Смерть:</div>
+                    Находился в заточении. Уморен голодом интервентами.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-avatar">🏛️</div>
+                    <div class="character-info">
+                        <h3>Кузьма Минин</h3>
+                        <div class="character-period">1611-1612</div>
+                    </div>
+                </div>
+                <div class="character-description">
+                    Нижегородский купец. Обратился к народу с призывом собрать средства для нового похода на Москву. С конца 1611 года формировал Второе земское ополчение.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-avatar">🗡️</div>
+                    <div class="character-info">
+                        <h3>Дмитрий Пожарский</h3>
+                        <div class="character-period">1611-1612</div>
+                    </div>
+                </div>
+                <div class="character-description">
+                    Князь, известный честностью и полководческим талантом. Военный вождь Второго ополчения. 22 августа отразил натиск польских войск под командой Ходкевича.
+                </div>
+                <div class="character-impact">
+                    <div class="impact-label">Результат:</div>
+                    26 октября 1612 года польский гарнизон капитулировал, ополченцы вступили в Кремль.
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-header">
+                    <div class="character-avatar">🕊️</div>
+                    <div class="character-info">
+                        <h3>Михаил Романов</h3>
+                        <div class="character-period">1613</div>
+                    </div>
+                </div>
+                <div class="character-description">
+                    16-летний внучатый племянник первой жены Ивана Грозного. Избран Земским собором в феврале 1613 года. Компромиссная фигура.
+                </div>
+                <div class="character-impact">
+                    <div class="impact-label">Бояре говорили:</div>
+                    "Миша молод, разумом еще не дошел. И нам будет поваден."
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
