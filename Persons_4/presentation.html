@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Презентация: Судьбы русской эмиграции</title>
+    <style>
+        /* Подключаем современный шрифт */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+        /* Общие стили для экрана */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #e9ecef; /* Светло-серый фон */
+            color: #212529; /* Почти черный текст для контраста */
+            margin: 0;
+            padding: 40px 0;
+        }
+
+        /* Стили для одного "слайда" */
+        .slide {
+            background-color: #ffffff;
+            width: 210mm;
+            min-height: 297mm; /* Может расти по контенту */
+            margin: 40px auto;
+            padding: 25mm;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #dee2e6;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Заголовочный слайд */
+        .title-slide {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #495057, #343a40); /* Градиентный фон */
+            color: #ffffff;
+        }
+
+        .title-slide h1 {
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .title-slide h2 {
+            font-size: 26px;
+            font-weight: 300;
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+
+        /* Слайды с контентом */
+        .content-slide .header {
+            background-color: #343a40; /* Темно-серый заголовок */
+            color: #ffffff;
+            padding: 20px 25px;
+            margin: -25mm -25mm 30px -25mm; /* Растягиваем на всю ширину */
+            border-bottom: 5px solid #007bff; /* Акцентная синяя линия */
+        }
+
+        .content-slide h2 {
+            font-size: 38px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .content-slide h3 {
+            font-size: 20px;
+            font-weight: 300;
+            margin: 5px 0 0 0;
+            opacity: 0.85;
+        }
+
+        .slide-body {
+            display: flex;
+            flex-direction: row;
+            gap: 35px;
+            flex-grow: 1;
+        }
+
+        .photo-container {
+            flex: 0 0 160px; /* Фиксированная ширина для фото */
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 3px solid #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .text-container {
+            flex: 1;
+        }
+
+        .info-block {
+             margin-bottom: 25px;
+        }
+
+        .info-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-block h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0056b3; /* Акцентный синий */
+            margin: 0 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e9ecef; /* Светло-серая линия-разделитель */
+        }
+
+        .info-block p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .info-block ul {
+            font-size: 16px;
+            line-height: 1.7;
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .info-block ul li {
+            padding-left: 20px;
+            position: relative;
+        }
+
+        /* Кастомные маркеры списка для лучшего выделения */
+        .info-block ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: #007bff; /* Акцентный синий */
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .location {
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        /* Стили для печати (экспорт в PDF) */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+                margin: 0;
+            }
+            .slide {
+                width: 100%;
+                min-height: 0;
+                height: 297mm;
+                margin: 0;
+                box-shadow: none;
+                border: none;
+                padding: 18mm;
+                page-break-after: always;
+            }
+            .slide:last-of-type {
+                page-break-after: auto;
+            }
+            .content-slide .header {
+                /* Упрощаем для печати, чтобы экономить чернила */
+                background-color: #f1f1f1 !important;
+                color: #000 !important;
+                -webkit-print-color-adjust: exact; /* Обязательно для Chrome/Safari */
+                print-color-adjust: exact; /* Стандарт */
+            }
+            .title-slide {
+                 background: #f1f1f1 !important;
+                 color: #000 !important;
+                 -webkit-print-color-adjust: exact;
+                 print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Слайд 1: Титульный лист -->
+    <section class="slide title-slide">
+        <h1>Судьбы русской эмиграции</h1>
+        <h2>Четыре представителя: Военный, критик, ученый, философ</h2>
+    </section>
+
+    <!-- Слайд 2: Федор Федорович Абрамов -->
+    <section class="slide content-slide">
+        <div class="header">
+            <h2>Федор Федорович Абрамов</h2>
+            <h3>Военачальник, генерал-лейтенант</h3>
+        </div>
+        <div class="slide-body">
+            <div class="photo-container">
+                <img src="photos/abramov.jpg" alt="Фото Федора Абрамова">
+            </div>
+            <div class="text-container">
+                <div class="info-block">
+                    <h4>Краткая биография</h4>
+                    <p>Донской казак, выпускник Николаевской академии Генштаба. Участник Русско-японской и Первой мировой войн. Один из ведущих командиров Донской армии в Гражданскую войну. В эмиграции возглавлял Русский общевоинский союз (РОВС). После Второй мировой войны переехал в США.</p>
+                </div>
+                <div class="info-block">
+                    <h4>Причины эмиграции</h4>
+                    <p>Активный участник Белого движения. Непринятие советской власти и поражение в Гражданской войне. Был эвакуирован с остатками Русской армии.</p>
+                </div>
+                <div class="info-block">
+                    <h4>Страны проживания</h4>
+                    <ul>
+                        <li>Турция (Галлиполи)</li>
+                        <li>Болгария, Югославия, Франция</li>
+                        <li>США</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h4>Где похоронен</h4>
+                    <p><strong><span class="location">США</span></strong>, на русском Свято-Владимирском кладбище в г. <strong><span class="location">Джексон</span></strong>, штат Нью-Джерси.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Слайд 3: Юлий Исаевич Айхенвальд -->
+    <section class="slide content-slide">
+        <div class="header">
+            <h2>Юлий Исаевич Айхенвальд</h2>
+            <h3>Литературный критик, философ</h3>
+        </div>
+        <div class="slide-body">
+            <div class="photo-container">
+                <img src="photos/aikhenvald.jpg" alt="Фото Юлия Айхенвальда">
+            </div>
+            <div class="text-container">
+                <div class="info-block">
+                    <h4>Краткая биография</h4>
+                    <p>Один из влиятельнейших критиков Серебряного века, автор книги «Силуэты русских писателей». Профессор Московского университета. Его взгляды на литературу были признаны идеологически чуждыми советской власти.</p>
+                </div>
+                <div class="info-block">
+                    <h4>Причины эмиграции</h4>
+                    <p>Был <strong>выслан из Советской России в 1922 году</strong> на одном из так называемых <strong>«философских пароходов»</strong> за несогласие с политикой большевиков.</p>
+                </div>
+                <div class="info-block">
+                    <h4>Страны проживания</h4>
+                    <ul>
+                        <li>Германия</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h4>Где похоронен</h4>
+                    <p><strong><span class="location">Германия</span></strong>, на православном кладбище <strong><span class="location">Берлин-Тегель</span></strong>. Погиб в результате несчастного случая.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Слайд 4: Валериан Константинович Агафонов -->
+    <section class="slide content-slide">
+        <div class="header">
+            <h2>Валериан Константинович Агафонов</h2>
+            <h3>Ученый-геолог, почвовед</h3>
+        </div>
+        <div class="slide-body">
+            <div class="photo-container">
+                <img src="photos/agafonov.jpg" alt="Фото Валериана Агафонова">
+            </div>
+            <div class="text-container">
+                <div class="info-block">
+                    <h4>Краткая биография</h4>
+                    <p>Выпускник Петербургского университета, ученик В.В. Докучаева. Известный ученый-геолог. Во время Гражданской войны сотрудничал с правительством генерала Деникина. В эмиграции продолжил научную деятельность в Париже и Ницце.</p>
+                </div>
+                <div class="info-block">
+                    <h4>Причины эмиграции</h4>
+                    <p>Противник советской власти. Сотрудничал с Белым движением на юге России, <strong>бежал от репрессий</strong> после его поражения.</p>
+                </div>
+                <div class="info-block">
+                    <h4>Страны проживания</h4>
+                    <ul>
+                        <li>Франция</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h4>Где похоронен</h4>
+                    <p><strong><span class="location">Франция</span></strong>, на русском кладбище Кокад в <strong><span class="location">Ницце</span></strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Слайд 5: Петр Семенович Авсенев -->
+    <section class="slide content-slide">
+        <div class="header">
+            <h2>Петр Семенович Авсенев</h2>
+            <h3>Религиозный философ, богослов</h3>
+        </div>
+        <div class="slide-body">
+            <div class="photo-container">
+                <img src="photos/avsenev.jpeg" alt="Фото Петра Авсенева">
+            </div>
+            <div class="text-container">
+                <div class="info-block">
+                    <h4>Краткая биография</h4>
+                    <p>Приват-доцент Киевской духовной академии, занимался историей философии и богословием. Не принял атеистическую идеологию советской власти. В эмиграции продолжил преподавательскую деятельность. В конце жизни принял католичество.</p>
+                </div>
+                <div class="info-block">
+                    <h4>Причины эмиграции</h4>
+                    <p>Неприятие советской власти и ее антирелигиозной политики. <strong>Бежал от возможных репрессий</strong> как представитель "старой" интеллигенции.</p>
+                </div>
+                <div class="info-block">
+                    <h4>Страны проживания</h4>
+                    <ul>
+                        <li>Чехословакия, Франция</li>
+                        <li>Югославия, Италия</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h4>Где похоронен</h4>
+                    <p><strong><span class="location">Италия</span></strong>, в <strong><span class="location">Риме</span></strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
